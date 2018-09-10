@@ -44,6 +44,9 @@ This is a getting started Repository for setting up new System for BlockChain on
       - $ nvm install node
       - $ node -v
       
+7.1. Install gulp-main-node
+      - npm i --save-dev gulp-main-node-files
+      
 7. Install Truffle and Ganache-cli
       - $ npm install -g truffle ganache-cli
       - $ truffle
