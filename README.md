@@ -76,3 +76,5 @@ This is a getting started Repository for setting up new System for BlockChain on
 
 HAPPY CODING!! CONFIGURATION PART IS ALMOST DONE. Will just setup a basic DAPP in second part of this.
     
+# Running/Building the DAPP
+- create_project.md
