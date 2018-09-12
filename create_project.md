@@ -12,3 +12,8 @@
        
 # Deploy on Live Ethereum Network
       - You can install geth on your system and sync to the live network.
+      - $ sudo add-apt-repository -y ppa:ethereum/ethereum [at global level]
+            reference: https://github.com/ethereum/go-ethereum/wiki/Installing-Geth#install-on-ubuntu-via-ppas
+      - $ sudo add-apt-repository -y ppa:ethereum/ethereum
+      - sudo apt-get update
+      - sudo apt-get install ethereum
