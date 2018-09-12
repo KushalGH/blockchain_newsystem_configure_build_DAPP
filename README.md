@@ -63,6 +63,7 @@ This is a getting started Repository for setting up new System for BlockChain on
 
 10. Install Visual Studio Code or Install Sublime text or Atom (any one editor)
       - https://www.sublimetext.com/
+            - https://www.sublimetext.com/docs/3/linux_repositories.html 
       - https://atom.io/
       - https://visualstudio.microsoft.com/downloads/
 
