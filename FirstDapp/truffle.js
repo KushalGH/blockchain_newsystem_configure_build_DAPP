@@ -1,61 +1,43 @@
-// Allows us to use ES6 in our migrations and tests.
-require('babel-register')
+require('dotenv').config();
+const Web3 = require("web3");
+const web3 = new Web3();
+const WalletProvider = require("truffle-wallet-provider");
+const Wallet = require('ethereumjs-wallet');
 
-var ethereumjsWallet = require('ethereumjs-wallet');
-var ProviderEngine = require("web3-provider-engine");
-var WalletSubprovider = require('web3-provider-engine/subproviders/wallet.js');
-var Web3Subprovider = require("web3-provider-engine/subproviders/web3.js");
-var Web3 = require("web3");
-var FilterSubprovider = require('web3-provider-engine/subproviders/filters.js');
+var ropstenPrivateKey = new Buffer(process.env["ROPSTEN_PRIVATE_KEY"], "hex");
+var ropstenWallet = Wallet.fromPrivateKey(ropstenPrivateKey);
+var ropstenProvider = new WalletProvider(ropstenWallet, "https://ropsten.infura.io/");
 
-// create wallet from existing private key
-var privateKey = 'DEB69AE859FEBAEB136E******************************************';
-var wallet = ethereumjsWallet.fromPrivateKey(new Buffer(privateKey, "hex"));
-var address = "0x" + wallet.getAddress().toString("hex");
-
-// using ropsten testnet 
-var providerUrl = "https://ropsten.infura.io/v3/<key>";
-var engine = new ProviderEngine();
-
-// filters
-engine.addProvider(new FilterSubprovider());
-engine.addProvider(new WalletSubprovider(wallet, {}));
-engine.addProvider(new Web3Subprovider(new Web3.providers.HttpProvider(providerUrl)));
-engine.start(); // Required by the provider engine.
+/*
+var mainnetPrivateKey = new Buffer(process.env["MAINNET_PRIVATE_KEY"], "hex");
+var mainnetWallet = Wallet.fromPrivateKey(mainnetPrivateKey);
+var mainnetProvider = new WalletProvider(mainnetWallet, "https://mainnet.infura.io/");
+*/
 
 module.exports = {
   networks: {
     development: {
       host: "localhost",
       port: 8545,
+      gas: 4600000,
       network_id: "*" // Match any network id
     },
-    kovan: {
-           host: "localhost",
-           port: 8545,
-           network_id: "2",
-           from: "0x00FcEf22b8e9c3741B0**************", //your accont address.
-           Gas: 1512388 // Gas you want to supply.
-       },
     ropsten: {
-           host: "localhost", // 127.0.0.1
-           port: 8545,
-           network_id: "4",
-           from: "0x976762d976560578b*****************", //your accont address.
-           Gas: 4700036 // Gas you want to supply.
-       },
-    live: {
-           host: "localhost",
-           port: 8545,
-           network_id: "1",
-           from: "0x00FcEf22b8e9c3741B0**************", //your accont address.
-           Gas: 1512388 // Gas you want to supply.
-       },
-    infuraRopsten: {
-          network_id: 3,    // Official ropsten network id
-          provider: engine, // Use our custom provider
-          from: address,   // Use the address we derived
-          gas: 4600000     // Gas you want to supply.
-    },
-  }  
+      provider: ropstenProvider,
+      network_id: 3,
+      gas: 4600000
+    }
+    /*,
+    mainnet: {
+      provider: mainnetProvider,
+      network_id: 1,
+      gas: 4600000
+    }*/
+  },
+  solc: {
+    optimizer: {
+      enabled: true,
+      runs: 200
+    }
+  }
 };
