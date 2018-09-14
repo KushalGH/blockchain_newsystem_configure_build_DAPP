@@ -4,10 +4,10 @@
       - $ cd firstdapp
       - $ truffle unbox webpack
       - make changes in the contract, script, css and migration files
-      - [on direct console] $ testrpc  
-      - ([at project level] ~/kushalgh/blockchain_newsystem_configure_build_DAPP/FirstDapp) $ truffle compile
-      - ([at project level] ~/kushalgh/blockchain_newsystem_configure_build_DAPP/FirstDapp) $ truffle migrate
-      - ([at project level] ~/kushalgh/blockchain_newsystem_configure_build_DAPP/FirstDapp) $ npm run dev
+      - ([on direct console]) $ testrpc  
+      - ([at project level]) $ truffle compile
+      - ([at project level]) $ truffle migrate
+      - ([at project level]) $ npm run dev
       - Import testrpc account to MetaMask. You will get some initial Ethers
        
 # Deploy on Live Ethereum Network
@@ -33,4 +33,21 @@
 
       - It will provide an end point by which you can directly connect to the network.
 
+
+# Commands to run on Ethereum Live Network
+      -  $ testrpc  
+      -  $ truffle compile
+      -  $ truffle migrate -- 
+      - ([at project level] ~/kushalgh/blockchain_newsystem_configure_build_DAPP/FirstDapp) $ npm run dev
+      - Import testrpc account to MetaMask. You will get some initial Ethers
+
+# Trying to build using INFURA  
+      - Signup to InFURA [https://infura.io/dashboard]
+
+      
+      - [at project level & globally] npm install --save ethereumjs-wallet
+      - [at project level & globally] npm install web3-provider-engine@14.0.6
+      - [at project level & globally] npm install truffle-hdwallet-provider
+      - [at globally level] sudo npm install -g web3 --unsafe-perm=true --allow-root
+      sudo apt-get install build-essential
 

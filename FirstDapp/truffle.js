@@ -9,12 +9,12 @@ var Web3 = require("web3");
 var FilterSubprovider = require('web3-provider-engine/subproviders/filters.js');
 
 // create wallet from existing private key
-var privateKey = '30205259a59f37f96a1cebc79bd3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+var privateKey = 'DEB69AE859FEBAEB136E******************************************';
 var wallet = ethereumjsWallet.fromPrivateKey(new Buffer(privateKey, "hex"));
 var address = "0x" + wallet.getAddress().toString("hex");
 
-// using ropsten testnet
-var providerUrl = "https://ropsten.infura.io/<your_access_token>";
+// using ropsten testnet 
+var providerUrl = "https://ropsten.infura.io/v3/<key>";
 var engine = new ProviderEngine();
 
 // filters
@@ -34,21 +34,21 @@ module.exports = {
            host: "localhost",
            port: 8545,
            network_id: "2",
-           from: "0x976762d976560578ba131300c76f4876bcdf4877", //your accont address.
+           from: "0x00FcEf22b8e9c3741B0**************", //your accont address.
            Gas: 1512388 // Gas you want to supply.
        },
     ropsten: {
-           host: "localhost",
+           host: "localhost", // 127.0.0.1
            port: 8545,
            network_id: "4",
-           from: "0x976762d976560578ba131300c76f4876bcdf4877", //your accont address.
+           from: "0x976762d976560578b*****************", //your accont address.
            Gas: 4700036 // Gas you want to supply.
        },
     live: {
            host: "localhost",
            port: 8545,
            network_id: "1",
-           from: "0x976762d976560578ba131300c76f4876bcdf4877", //your accont address.
+           from: "0x00FcEf22b8e9c3741B0**************", //your accont address.
            Gas: 1512388 // Gas you want to supply.
        },
     infuraRopsten: {
