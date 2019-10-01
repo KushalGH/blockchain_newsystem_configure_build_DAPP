@@ -42,7 +42,6 @@ build/
 node_modules/
 package-lock.json
 
-*FirstDapp/contracts linguist-detectable=true
 
 CompanyDirectoryWebApp\CompanyDirectoryWebApp\100dWeb\Content\css\style.css.map
 Services/CDCompanyXMLGenerateService/packages/EntityFramework.6.1.3/EntityFramework.6.1.3.nuspec
